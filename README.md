@@ -3,9 +3,9 @@
 ## 实习任务
 实现任务包括：
 * 分析支持python3.11程序的syscall系统调用。
-* 在ArceOS/Starrry系统上，逐步完成下列过程，完善每个步骤中python3.11程序所依赖的syscall系统调用，以及，以内核实现的syscall与用户态程序的正常交互为实现目标。
+* 在[ArceOS/Starrry](https://github.com/Arceos-monolithic/Starry)系统上，逐步完成下列过程，完善每个步骤中python3.11程序所依赖的syscall系统调用，以及，以内核实现的syscall与用户态程序的正常交互为实现目标。
 
-## 交叉编译
+## 交叉编译用户态程序
 以`aarch64`架构为例，编译出ArceOS/Starry可用的用户态程序
 
 `Python-3.11.8`在交叉编译阶段，会报如下库的依赖： `libffi`, `zlib`, `libuuid`, `xz`. 故需要依赖库也需要交叉编译。
@@ -75,7 +75,7 @@ make -j8 && make install
 
 `Python-3.11.8`编译完成后，所有程序和库都放置于目录`/opt/python3.11`
 
-## 测试
+## 试验
 
 * Qemu模拟环境
 准备程序运行的Qemu模拟环境，这里我提供了`aarch64`架构的`Alpine Linux`，类似ArceOS/Starry的`musl libc`环境。
@@ -121,26 +121,6 @@ strace -f -c -o python3_syscall.txt python3.11 xx
 
 每个syscall在相应架构上都有唯一的ID号，如`aarch64`架构的syscall ID可以查询：
 https://git.musl-libc.org/cgit/musl/tree/arch/aarch64/bits/syscall.h.in
-
-### **在ArceOS/Starrry系统上，逐步完成下列过程，完善每个步骤中python3.11程序所依赖的syscall系统调用，以及，以内核实现的syscall与用户态程序的正常交互为实现目标。**
-
-
-1. 先运行一个简单的help命令`python3.11 -h`，看Starry是否能支持起来，发现当前以及可以。
-![help-py](pic/help-py.png)
-
-2. 再尝试做一下python脚本的解析, 正常应该有脚本的介绍字符输出；
-```
-python3.11 pydoc3.11
-```
-![py-py](pic/py-py.png)
-
-3. 执行`python3.11`尝试一下python的交互模式，查看交互模式是否执行正常；
-![inte-py](pic/inte-py.png)
-
-4. 最终目标，顺利通过Python3程序完整测试
-```
-bin/python3.11 lib/python3.11/test/test___all__.py
-```
 
 这里在Linux上统计，通过Python3程序完整测试的所有syscall包括：
 ```
@@ -190,6 +170,26 @@ bin/python3.11 lib/python3.11/test/test___all__.py
   0.00    0.000000           0         1           execve
 ------ ----------- ----------- --------- --------- ----------------
 100.00    1.252207          34     36531      2685 total
+```
+
+### **在ArceOS/Starrry系统上，逐步完成下列过程，完善每个步骤中python3.11程序所依赖的syscall系统调用，以及，以内核实现的syscall与用户态程序的正常交互为实现目标。**
+
+
+1. 先运行一个简单的help命令`python3.11 -h`，看Starry是否能支持起来，发现当前以及可以。
+![help-py](pic/help-py.png)
+
+2. 再尝试做一下python脚本的解析, 正常应该有脚本的介绍字符输出；
+```
+python3.11 pydoc3.11
+```
+![py-py](pic/py-py.png)
+
+3. 执行`python3.11`尝试一下python的交互模式，查看交互模式是否执行正常；
+![inte-py](pic/inte-py.png)
+
+4. 最终目标，顺利通过Python3程序完整测试
+```
+bin/python3.11 lib/python3.11/test/test___all__.py
 ```
 
 预期通过的输出：
