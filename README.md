@@ -245,14 +245,15 @@ OK
 ```
 
 #### 实习任务4, 通过Python3程序的完整测试用例
+Python3适配小组的代码仓库： https://github.com/luodeb/Starry.git
 
-基于zyj的支持Linux Syscall的Starry；
-unikernel python适配
+适配过程基于zyj童鞋的支持了Linux Syscall的Starry；以及得到了ysp童鞋的支持，他适配了unikernel平台的静态python;
 
 * 完成情况： 完成
 * 测试用例通过数量： 1714
-* 技术交流及代码贡献： 蔡镭， 罗得斌， 蒲云， 李昕昊， 张红星, ,薛建清, 张顶
-
+* 积极参与代码贡献和技术交流的学员：
+ 蔡镭， 罗得斌， 蒲云， 李昕昊， 张红星, 
+ ,薛建清, 张顶
 
 ![python3 all test 1](pic/py-all-test-1.png)
 ![python3 all test 2](pic/py-all-test-2.png)
