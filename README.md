@@ -178,14 +178,29 @@ https://git.musl-libc.org/cgit/musl/tree/arch/aarch64/bits/syscall.h.in
 1. 先运行一个简单的help命令`python3.11 -h`，看Starry是否能支持起来，发现当前以及可以。
 ![help-py](pic/help-py.png)
 
+#### 实习任务1完成情况： 已完成
+
 2. 再尝试做一下python脚本的解析, 正常应该有脚本的介绍字符输出；
 ```
 python3.11 pydoc3.11
 ```
 ![py-py](pic/py-py.png)
 
+#### 实习任务2完成情况： 已完成
+
+![python3 解析脚本](pic/py-parsing-script.png)
+
+
 3. 执行`python3.11`尝试一下python的交互模式，查看交互模式是否执行正常；
 ![inte-py](pic/inte-py.png)
+
+
+#### 实习任务3完成情况： 基本完成
+
+问题：修改后默认shell的命令行的键盘输入，会重复出现一遍。
+
+![python3 交互模式](pic/py-inte.png)
+
 
 4. 最终目标，顺利通过Python3程序完整测试
 ```
@@ -228,3 +243,16 @@ Ran 1 test in 28.237s
 
 OK
 ```
+
+#### 实习任务4, 通过Python3程序的完整测试用例
+
+基于zyj的支持Linux Syscall的Starry；
+unikernel python适配
+
+* 完成情况： 完成
+* 测试用例通过数量： 1714
+* 技术交流及代码贡献： 蔡镭， 罗得斌， 蒲云， 李昕昊， 张红星, ,薛建清, 张顶
+
+
+![python3 all test 1](pic/py-all-test-1.png)
+![python3 all test 2](pic/py-all-test-2.png)
