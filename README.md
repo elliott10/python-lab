@@ -245,7 +245,11 @@ OK
 ```
 
 #### 实习任务4, 通过Python3程序的完整测试用例
-Python3适配小组的代码仓库： https://github.com/luodeb/Starry.git
+Python3适配小组的代码仓库：
+
+https://github.com/luodeb/Starry.git  b9cca1af@main
+
+OR https://github.com/elliott10/arceos/tree/python3
 
 适配过程基于zyj童鞋的支持了Linux Syscall的Starry；以及得到了ysp童鞋的支持，他适配了unikernel平台的静态python;
 
